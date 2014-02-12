@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ItemsViewController : NSObject
+@interface ItemsViewController : UITableViewController
+
+//-(id)initWithStyle:(UITableViewStyle):style;
+
 
 @end
