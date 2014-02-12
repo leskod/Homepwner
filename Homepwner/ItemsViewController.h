@@ -11,6 +11,18 @@
 @interface ItemsViewController : UITableViewController
 
 //-(id)initWithStyle:(UITableViewStyle):style;
+{
+    IBOutlet UIView *headerView;
+}
+
+-(UIView *) headerView;
+-(IBAction)addNewItem:(id)sender;
+-(IBAction)toggleEditingMode:(id)sender;
+
+
+
+
+
 
 
 @end

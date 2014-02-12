@@ -21,9 +21,9 @@
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        for (int i = 0; i < 10; i++) {
-            [[BNRItemStore sharedStore] createItem];
-        }
+//        for (int i = 0; i < 5; i++) {
+//            [[BNRItemStore sharedStore] createItem];
+//        }
     }
     return self;
 }
@@ -62,6 +62,81 @@
     return cell;
 }
 
+-(UIView *)headerView
+{
+    if (!headerView)
+    {
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    return headerView;
+}
+
+-(UIView *)tableView:(UITableView *)tv viewForHeaderInSection:(NSInteger)sec
+{
+    return [self headerView];
+}
+
+-(CGFloat)tableView:(UITableView *) tv heightForHeaderInSection:(NSInteger)sec
+{
+    return [[self headerView] bounds].size.height;
+}
+
+-(IBAction)toggleEditingMode:(id)sender
+{
+    if (([self isEditing]))
+    {
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        
+        [self setEditing:NO animated:YES];
+    }
+    else
+    {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        
+        [self setEditing:YES animated:YES];
+    }
+}
+
+-(IBAction)addNewItem:(id)sender
+{
+    //make a new index position for the 0th section, last row
+    //int lastRow = [[self tableView] numberOfRowsInSection:0];
+    
+    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    
+    //figure out where that item is in the array
+    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    
+    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    //insert the new row into the table
+    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
+                            withRowAnimation:UITableViewRowAnimationTop];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle==UITableViewCellEditingStyleDelete)
+    {
+        BNRItemStore *ps = [BNRItemStore sharedStore];
+        NSArray *items = [ps allItems];
+        BNRItem *p = [items objectAtIndex:[indexPath row]];
+        [ps removeItem:p];
+        
+        //we also need to remove that row from the table view
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+}
+
+-(void)tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+     toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
+     toIndex:[destinationIndexPath row]];
+}
 
 
 

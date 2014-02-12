@@ -22,6 +22,7 @@
 		01EF41D418AAFE4F0048E3E4 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EF41D318AAFE4F0048E3E4 /* ItemsViewController.m */; };
 		01EF41D718AB01630048E3E4 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EF41D618AB01630048E3E4 /* BNRItem.m */; };
 		01EF41DA18AB01950048E3E4 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EF41D918AB01950048E3E4 /* BNRItemStore.m */; };
+		01EF41DC18AC06AD0048E3E4 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01EF41DB18AC06AD0048E3E4 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		01EF41D618AB01630048E3E4 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		01EF41D818AB01950048E3E4 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		01EF41D918AB01950048E3E4 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		01EF41DB18AC06AD0048E3E4 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				01EF41B218AAFD720048E3E4 /* HomepwnerAppDelegate.h */,
 				01EF41B318AAFD720048E3E4 /* HomepwnerAppDelegate.m */,
 				01EF41D218AAFE4F0048E3E4 /* ItemsViewController.h */,
+				01EF41DB18AC06AD0048E3E4 /* HeaderView.xib */,
 				01EF41D318AAFE4F0048E3E4 /* ItemsViewController.m */,
 				01EF41D818AB01950048E3E4 /* BNRItemStore.h */,
 				01EF41D918AB01950048E3E4 /* BNRItemStore.m */,
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01EF41DC18AC06AD0048E3E4 /* HeaderView.xib in Resources */,
 				01EF41AE18AAFD720048E3E4 /* InfoPlist.strings in Resources */,
 				01EF41B618AAFD720048E3E4 /* Images.xcassets in Resources */,
 			);
