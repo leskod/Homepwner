@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ItemsViewController.h"
+
 
 @interface ItemsViewController : UITableViewController
 
 //-(id)initWithStyle:(UITableViewStyle):style;
 {
-    IBOutlet UIView *headerView;
+//    IBOutlet UIView *headerView;
 }
-
--(UIView *) headerView;
+//
+//-(UIView *) headerView;
 -(IBAction)addNewItem:(id)sender;
--(IBAction)toggleEditingMode:(id)sender;
+//-(IBAction)toggleEditingMode:(id)sender;
 
 
 
