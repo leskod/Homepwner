@@ -11,6 +11,7 @@
 @implementation BNRItem
 @synthesize itemName;
 @synthesize containedItem, container, serialNumber, valueInDollars, dateCreated;
+@synthesize imageKey;
 
 
 +(id)randomItem

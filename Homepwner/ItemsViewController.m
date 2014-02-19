@@ -21,7 +21,8 @@
 {
     // Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStyleGrouped];
-    if (self) {
+    if (self)
+    {
 //        for (int i = 0; i < 5; i++) {
 //            [[BNRItemStore sharedStore] createItem];
 //        }
@@ -38,8 +39,15 @@
         //set this bar button item as the right item in the navigationItem
         [[self navigationItem] setRightBarButtonItem:bbi];
     
-    [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
-}
+        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
+        
+        
+        
+//        [[self navigationItem] setLeftBarButtonItem:bbi];
+//        
+//        [[self navigationItem] setRightBarButtonItem:[self editButtonItem]];
+        
+    }
     return self;
 }
 
