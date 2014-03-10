@@ -12,6 +12,8 @@
 {
     NSMutableDictionary *dictionary;
 }
+
+//this makes it be a singleton class
 +(BNRImageStore *)sharedStore;
 
 -(void)setImage:(UIImage *)i forKey:(NSString *)s;

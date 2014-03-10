@@ -110,6 +110,9 @@
 {
     UIImagePickerController *imagePicker=[[UIImagePickerController alloc]init];
     
+    
+    imagePicker.allowsEditing = YES;
+    
     //if our device has a campera, we want to take a picture, otherwise, just pick it from the photo library
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
@@ -130,7 +133,25 @@
     [[self view] endEditing:YES];
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (IBAction)clearImage:(id)sender
+{
+    if ([item imageKey]) {
+        
+        // Remove the image from the screen
+        [imageView setImage:nil];
+        
+        // Delete the image form the image store
+        [[BNRImageStore sharedStore] deleteImageForKey:[item imageKey]];
+        
+        // Delete the imageKey of the item
+        [item setImageKey:nil];
+    }
+}
+
+//this is like a callback...or handling an event when an image is picked.
+//the image picker controller calls this method which allows us to do things with the image, like displaying (setImage) it
+-(void)imagePickerController:(UIImagePickerController *)picker
+    didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *oldKey = [item imageKey];
     //did the item already have an image?
@@ -142,7 +163,8 @@
     
     
     //get the image from the dictionary
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    //UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     
     //create a CFUUID object - it knows how to create the unique identifier strings
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
@@ -154,9 +176,11 @@
     NSString *key = (__bridge NSString *)newUniqueIDString;
     [item setImageKey:key];
     
-    //store image in BNRImageStore with this key
+    //store image in BNRImageStore Dictionary with this key
     [[BNRImageStore sharedStore] setImage:image forKey:[item imageKey]];
     
+    
+    //
     CFRelease(newUniqueIDString);
     CFRelease(newUniqueID);
     
