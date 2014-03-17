@@ -63,6 +63,16 @@
 }
 
 
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)io
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad)
+    {
+        return YES;
+    }else{
+        return (io==UIInterfaceOrientationPortrait);
+        
+    }
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -132,15 +142,33 @@
     //int lastRow = [[self tableView] numberOfRowsInSection:0];
     
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+//    
+//    //figure out where that item is in the array
+//    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+//    
+//    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+//    
+//    //insert the new row into the table
+//    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
+//                            withRowAnimation:UITableViewRowAnimationTop];
     
-    //figure out where that item is in the array
-    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initForNewItem:YES];
     
-    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [detailViewController setItem:newItem];
     
-    //insert the new row into the table
-    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
-                            withRowAnimation:UITableViewRowAnimationTop];
+    [detailViewController setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:detailViewController];
+    
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+    [navController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,7 +206,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 -(void)tableView:(UITableView *)aTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    //DetailViewController *detailViewController = [[DetailViewController alloc] init];
+    DetailViewController *detailViewController = [[DetailViewController alloc]initForNewItem:NO];
     
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *selectedItem = [items objectAtIndex:[indexPath row]];
