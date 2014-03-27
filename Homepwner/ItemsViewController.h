@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "ItemsViewController.h"
+#import "HomepwnerItemCell.h"
+
 
 
 @interface ItemsViewController : UITableViewController
+<UIPopoverControllerDelegate>
 
 //-(id)initWithStyle:(UITableViewStyle):style;
 {
 //    IBOutlet UIView *headerView;
+    UIPopoverController *imagePopover;
 }
 //
 //-(UIView *) headerView;

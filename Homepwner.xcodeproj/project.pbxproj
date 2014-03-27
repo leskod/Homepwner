@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0112AEDD18E4582E0014931B /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0112AEDB18E4582E0014931B /* ImageViewController.m */; };
+		0112AEDE18E4582E0014931B /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0112AEDC18E4582E0014931B /* ImageViewController.xib */; };
+		0125225C18E35BDE009E8EAD /* HomepwnerItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0125225B18E35BDE009E8EAD /* HomepwnerItemCell.m */; };
+		0125225E18E35C50009E8EAD /* HomepwnerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0125225D18E35C50009E8EAD /* HomepwnerItemCell.xib */; };
 		016804C618B4306E00B5EC67 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 016804C518B4306E00B5EC67 /* BNRImageStore.m */; };
 		01EF41A418AAFD720048E3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF41A318AAFD720048E3E4 /* Foundation.framework */; };
 		01EF41A618AAFD720048E3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01EF41A518AAFD720048E3E4 /* CoreGraphics.framework */; };
@@ -39,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0112AEDA18E4582E0014931B /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		0112AEDB18E4582E0014931B /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		0112AEDC18E4582E0014931B /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		0125225A18E35BDE009E8EAD /* HomepwnerItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepwnerItemCell.h; sourceTree = "<group>"; };
+		0125225B18E35BDE009E8EAD /* HomepwnerItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepwnerItemCell.m; sourceTree = "<group>"; };
+		0125225D18E35C50009E8EAD /* HomepwnerItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomepwnerItemCell.xib; sourceTree = "<group>"; };
 		016804C418B4306E00B5EC67 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
 		016804C518B4306E00B5EC67 /* BNRImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageStore.m; sourceTree = "<group>"; };
 		01EF41A018AAFD720048E3E4 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +152,12 @@
 				01EF41AA18AAFD720048E3E4 /* Supporting Files */,
 				016804C418B4306E00B5EC67 /* BNRImageStore.h */,
 				016804C518B4306E00B5EC67 /* BNRImageStore.m */,
+				0125225A18E35BDE009E8EAD /* HomepwnerItemCell.h */,
+				0125225B18E35BDE009E8EAD /* HomepwnerItemCell.m */,
+				0125225D18E35C50009E8EAD /* HomepwnerItemCell.xib */,
+				0112AEDA18E4582E0014931B /* ImageViewController.h */,
+				0112AEDB18E4582E0014931B /* ImageViewController.m */,
+				0112AEDC18E4582E0014931B /* ImageViewController.xib */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -251,9 +267,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0125225E18E35C50009E8EAD /* HomepwnerItemCell.xib in Resources */,
 				01EF41DC18AC06AD0048E3E4 /* HeaderView.xib in Resources */,
 				01EF41AE18AAFD720048E3E4 /* InfoPlist.strings in Resources */,
 				01EF41B618AAFD720048E3E4 /* Images.xcassets in Resources */,
+				0112AEDE18E4582E0014931B /* ImageViewController.xib in Resources */,
 				01EF41E118AD99A40048E3E4 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +293,11 @@
 			files = (
 				01EF41DA18AB01950048E3E4 /* BNRItemStore.m in Sources */,
 				01EF41D418AAFE4F0048E3E4 /* ItemsViewController.m in Sources */,
+				0125225C18E35BDE009E8EAD /* HomepwnerItemCell.m in Sources */,
 				016804C618B4306E00B5EC67 /* BNRImageStore.m in Sources */,
 				01EF41D718AB01630048E3E4 /* BNRItem.m in Sources */,
 				01EF41B418AAFD720048E3E4 /* HomepwnerAppDelegate.m in Sources */,
+				0112AEDD18E4582E0014931B /* ImageViewController.m in Sources */,
 				01EF41B018AAFD720048E3E4 /* main.m in Sources */,
 				01EF41E018AD99A40048E3E4 /* DetailViewController.m in Sources */,
 			);

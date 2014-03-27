@@ -94,7 +94,7 @@
 -(NSString *)imagePathForKey:(NSString *)key
 {
     NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory
                                     , NSUserDomainMask
                                         , YES);
     
